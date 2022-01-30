@@ -1,0 +1,17 @@
+# Accounting web application service, version 1.0.5
+
+app:
+  name: accounting
+  hostname: accting
+  replicas: 3
+  port: 80
+  registry:
+    url: registry.docker.cube.int:5000
+  image:
+    name: accounting
+    tag: 1.0.5
+  env:
+    - name: ENVIRONMENT
+      value: PRODUCTION
+    - name: DEBUG
+      value: "false"

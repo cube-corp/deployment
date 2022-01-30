@@ -1,0 +1,17 @@
+# Auditing web application service, version 2.3.1
+
+app:
+  name: auditing
+  hostname: audeet
+  replicas: 3
+  port: 80
+  registry:
+    url: registry.docker.cube.int:5000
+  image:
+    name: auditing 
+    tag: 2.3.1
+  env:
+    - name: ENVIRONMENT
+      value: PRODUCTION
+    - name: DEBUG
+      value: "false"

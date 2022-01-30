@@ -1,0 +1,16 @@
+# Home page, version 1.3.2
+
+app:
+  name: home
+  replicas: 3
+  port: 80
+  registry:
+    url: registry.docker.cube.int:5000
+  image:
+    name: home-static 
+    tag: 1.3.2
+  env:
+    - name: ENVIRONMENT
+      value: PRODUCTION
+    - name: DEBUG
+      value: "false"

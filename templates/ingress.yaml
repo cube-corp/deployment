@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.app.name }}-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.app.name }}-svc
+            port:
+              number: {{.Values.app.port}}
+    {{ if .Values.app.hostname }}
+    host: {{ .Values.app.hostname | repeat 2 }}.{{ .Values.infrastructure.orgname }}.{{ .Values.tld }}
+    {{ end }}
